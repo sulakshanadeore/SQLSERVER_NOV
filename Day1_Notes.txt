@@ -1,0 +1,247 @@
+SQL SERVER
+----------
+SQL server ---Microsoft
+RDBMS---Relational Database Mgt System
+Codds rules(12)
+Database
+----------
+managing the data
+managing the users
+managing back up recovery 
+---------------------------------------------------
+
+SSMS---> Sql server Mgt Studio
+4 products
+1) Database Engine 
+2) SSRS--- SQL Server Reporting Services
+3) SSIS--- SQL SERVER Integration Services
+4) SSAS--- SQL SERVER Analysis Services
+-----------------------------------------------------------
+Database Engine--- uses SSMS as its IDE
+Database---- Client Server Architecture
+Client/s     
+
+SERVER---->serves/responds to the requests given by the client
+
+SQL Server Express---- Services.msc
+
+
+Connect to the server:
+1) Windows Authentication-- Windows user
+2) SQL SERVER authentication-- user on the server(Mixed)
+
+***Windows user-->sulakshana\sqlexpress----> userid & no pwd required
+
+server=Sulakshana\sqlexpress;Integrated Security=true
+
+
+
+
+SQL Server--->
+   windows User              SQL SERVER           HR(Full Access)
+
+  prathamesh---admin      p\admin
+    prathamesh					p123
+
+   ----------------------------------
+   Ahmed-- Normal          ahmed                 ERP(Full Access)   + Emp(HR)
+    ahmed                  a123
+---------------------------------------
+	Pari--Normal            pari                  StudentMgt(Full Access)  + Teacher(HR)
+   pari                    p1234
+
+-----------------------------------------------------------------
+
+System Databases SQL SERVER
+Database: collection of different objects like tables,views,synonyms,procedures,function,triggers etc
+(table---physical place where data is stored)
+
+1) master----- main database on the server
+	if master db is available, then u have all priveleges on the database server.
+		create a database, user, role etc,
+		all rights for the database management.
+2) model------ template for creating a database----
+3) msdb------- is used by sql server agent for scheduling all jobs and alerts, 
+service broker and database mail, automatically maintaining online backup and restore the history within tables in msdb
+4) tempdb----temporary----used for creating temp tables. #is prefix with table name to create temporary table.
+--------------------------------------------------------------------------------
+
+1) install the database--- 2 ways
+
+2) create database it generates 2 file---> d1.mdf(micrsoft database file) & d1.ldf(log database file)
+----------------------------
+
+GO/go/Go----> is a command that sql server utilities interpret as a signal a a single 
+T-SQL /batch of T-SQL should be sent to the instance of sql server.
+
+T-SQL(Transact SQL)--> Sql server are T-SQL statements/commands.
+
+create
+insert
+update
+delete
+select
+
+DDL----Data Definition Language---create/alter/drop---> auto commit(commit means save)
+ddl are commands, if successfully executed they make their changes in the database 
+automatically.
+
+DML----Data Manipulation Language----insert/update/delete
+manipulating the data----> SQL Statements-----need to be saved/committed explicity.
+
+
+TCL----Transaction Control Language---savepoint,rollback,commit
+These will take the database from one consistent state to another in a transaction.
+
+
+DCL---grant,revoke,create users,create roles
+
+DQL----Data Query Language----asking for the data from the database using certain rules 
+as per the requirement.
+------------------------------------------------------------------
+Understanding the DB
+1) Domain--Shopping/Traders---selling of products,records of order data,customers etc
+2) Terminolgoies in the domain-----Scope of the database
+Normalisation defines the tables and the relationship between tables.		
+
+
+
+Orders     [Order Details]
+   1            M
+   1            1
+	M				1
+
+
+ 1 product can be ordered by 1 customer
+ M products can be order by 1 customer
+
+1 product :1 Orders
+
+
+1 product: M ORders : [OrderDetails]
+
+1:M---- > include key attribute of one into many
+	the key attribute--primary key
+
+primary columnnmae on whcih searching is very faster.
+Index would be created on that column and it keeps on updating itself when any value changes.
+
+primary key---with which I can find the whole info about the record.
+  not null means it cannot be that empid is not generated,assigned.there will be a valid value for empno/empid.
+****There can be only one primary key in the table. primary key keyowrd can be only used
+once during table creation.
+
+Integrity---wholeness and correctness of the data
+Constraint---rule/check imposed on the data
+
+1)Integrity Constraints: 2--Entity integrity(PK) and referential integrity(FK)
+2)Not null constraint---it cannot be null,
+3) Null-----it can be null
+4) check
+
+
+
+Emp
+PK(unique + not null)  
+(Entity Integrity)																		FK
+                   not null     null												Referential Integrityce
+                  check sal>0 and sal<150000
+Empid  Ename     	Salary      TravellingAllowance              Designation       Deptno
+ 1		Souvik P   	100000        null	(not applicable)		   Developer           2
+ 2		Souvik P   	100000        null                         Developer             2
+ 3      Jack        90000       1000						         Marketing Executive  3
+ 4       Jim        90000          0                          Marketing Executive    3
+ 5        Tim       90000          0                             null                null
+
+
+
+Dept
+PK
+Deptno
+1	 HR            Mumbai
+2 	 Development  Bangalore
+3   Marketing     Bangalore
+4   Logistics     Mumbai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------
+
+
+
+
+
+
+
