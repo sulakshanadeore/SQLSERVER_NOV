@@ -84,5 +84,95 @@ Empno   Name   City    salary
  3       c      bangalore 30k
 
 Name, city and salary depends on Empno.
+---------------------------------------------
+Unnormalised
+Emp
+empno ename city salary phoneno1
+1      a     pune  10k   33333/44444
+2      b     mumbai 20k   24234
+3      c     mumbai 20k   24668/6666/4444
+
+1NF
+Emp
+empno ename city salary phoneno1  ph2    ph3
+1      a     pune  10k   33333    44444   null
+2      b     mumbai 20k   24234   null     null
+3      c     mumbai 20k   24668   6666    4444
+
+2NF
+
+teacher
+tid  sub   age
+1     chem  43
+2     bio   30
+2     chem  30
+3     phy   30
+3     maths 30
+----------------
+
+teacher
+tid   age
+1     43
+2     30
+3     30
+
+subject
+tid   sub
+1      chem
+2      bio
+2      chem
+3      phy
+3      maths
+
+select sub from subject
+where tid=3
+
+3NF
+non-prime----> not important(all else nonprime)
+prime--->important(empno)
+
+emp
+empno ename city pin state 
+1       a    Pune 27 Mh
+2       b    Mumbai 28 Mh
+3       c    blore   21 Ka
+
+
+Emp_Detail
+Pin  city state
+27     Pune MH
+28     mumbai MH
+21     blore   Ka
+29     nagpur   
+
+Emp
+empno ename pin
+1      a     27
+2      b     28
+3      c     21
+4      d     21
+5      e     29
+
+BCNF
+----
+empno country deptname  deptno
+1       In     Des    10
+2       Us     Des    10
+1       In     Dev    20
+3       In     des    10
+
+empno->country
+
+employee
+empno  country
+---------
+dept
+deptname  dpetno
+----------
+empno  deptno
+
+
+
+
 
 
