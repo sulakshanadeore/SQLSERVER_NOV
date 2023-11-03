@@ -1,0 +1,88 @@
+Normalization
+-------------
+
+What is normalization
+
+Process/series of steps done when large databases are to be evolved using software 
+engineering.
+each process gives a output as a Normal Form.
+1NF
+2NF
+3NF
+4NF
+BCNF
+DKNF
+Organise
+Tables---relation
+column---attributes
+rows-----tuples
+Why?
+It is done to remove the duplication/redundancy in the database.
+
+How?
+Identifying the anomalies---problems 
+Insertion---- Unable to insert data because the data is less/inadequate.
+Joining
+Student-Group: he is alloted the technology
+Insert the student data in the trainee table.
+
+Trainee
+ID Name Qual      Assigned_Group
+ 1  a    btech    Azure
+ 2  b    btech    
+
+Deletion----Unable to delete the data becoz if a particular data is deleted it may delete 
+some more data as the condition specified is satisfied by the data.
+Results in unnecessary data loss.
+
+Trainee
+ Name Qual      Assigned_Group
+   a    btech    Azure
+   b    btech    
+
+
+Updation---Unable to update the data becoz if a particular data is updated it may delete 
+some more data as the condition specified is satisfied by the data.
+Results in wrong data.
+
+Trainee
+ Name Qual      Assigned_Group
+   a    btech    Azure
+   b    btech    
+
+
+1NF---> A table/relation must be having only single values in single columns/attributes
+2NF--->A relation is said to be in 2nf if and only if it is in 1nf and all non-key attributes are fully functionally dependent on the primary key.
+3NF----A relation is said to be in 3nf if and only if it is in 2nf and no transition dependency exists.
+BCNF(Boyce Codd Normal form)----A relation is said to be in BCNF if and only if it is in 3nf.
+4NF----A relation is said to be in 4nf if and only if it is in 3nf and it is in BCNF form and has no multivalued dependency
+5NF---A relation is said to be in 5nf if and only if it is in 5nf and doesnot contain any join dependency
+DKNF(Domain Key normal form)---it contains no other constraints other than domain contraints and key contraints.
+
+
+Transitive----> 3 attributes
+				A B C----> A is dependent on C
+A is dependent on B
+B is dependent on C
+  A         B        C
+Bookname  author  ageAuthor
+book1      A        45
+book2      B        60
+book3      A        45
+
+
+Author doesnot depend on Book
+
+bookname depends on Author=A depends on B
+Author and ageAuthor =B depends on C
+
+Functional---> maintain the quality of data. (->)
+Emp
+Empno   Name   City    salary
+ 1       a      Pune    10k
+2        b      mumbai  20k
+ 3       c      bangalore 30k
+
+Name, city and salary depends on Empno.
+
+
