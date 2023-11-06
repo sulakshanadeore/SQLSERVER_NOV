@@ -99,6 +99,35 @@ select  * from [Order Details]
 where OrderId=10285
 select 14.40 * 45
 
+select orderid,productid,sum(UnitPrice*Quantity) as 'Total Price' from [Order Details]
+group by rollup(OrderID,ProductID)
+
+select * from Orders
+where  DATEPART(year,orderdate)=1997 and DATEPART(month,orderdate)=01
+
+select * from Orders
+where  DATEPART(day,orderdate)=02
+
+select   DATEPART(second,getdate())
+
+
+select DATEADD(MONTH,2,getdate())
+select DATEADD(MONTH,-2,getdate())
+select DATEADD(DAY,2,getdate())
+
+select DATEDIFF(QUARTER,'11-01-2022',getdate())
+
+select DATENAME(WEEKDAY,getdate())
+select DATENAME(QQ,getdate())
+
+select DATEFROMPARTS(2023,11,06)
+
+select DATETRUNC(minute,getdate())
+select DATETRUNC(dd,getdate())
+select DATETRUNC(mi,getdate())
+select ISDATE('2023-21-01')
+select ISDATE('2023-12-31')
+
 
 
 
