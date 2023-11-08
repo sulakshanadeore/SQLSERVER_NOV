@@ -1,0 +1,130 @@
+Triggers
+Ado.net
+Connect to sql server:
+Connected 
+Disconnected
+-------------------------------------------------------
+Triggers
+
+It is a special type of stored procedures which are fired automatically.
+Because, they donot return any thing like stored procedures.
+
+
+
+
+1) create trigger
+
+
+triggers are fired/called automatically when a condition becomes true.
+
+
+Similar to Constraints, errors are automatically.
+
+When writing triggers:
+1) event when the trigger must be fired
+2) what you want to do when the event fires/ trigger condtion becomes true
+
+Types of Triggers:
+
+1) Data Definition Language triggers: create,alter,drop
+
+
+2) Data Manipulation Language Triggers:Insert /Updating /Deleting data from the table/s then called as DML triggers.
+Stored Procedures that do DML operations, then we can use DML triggers.
+
+     
+a)After/For Clause in DML Triggers: After the SQL Server finishes the work of Insert/Update/Delete successfully, then you want to execute some code,
+							------
+such codes/logic is written in body
+After Insert
+After Update
+After Delete
+
+Before the data goes into the table AFTER the insert statement, the data is recorded in the memory of SQL server when a trigger is written on that table.
+The memory maintains a table called as "INSERTED" for all the inserted statements before they go to the table, and when the data is seen/inserted in the table
+successfully that memory table is cleared.
+When the data is DELETED then the "DELETED" memory table is used.
+
+
+
+
+b) Instead Of/Before :Before the SQL Server starts the work of Insert/Update/Delete successfully, then you want to execute some code,
+		      -------		    ------			
+such codes/logic is written in body.
+Instead of Insert
+Instead of Update
+Instead of Delete
+
+
+
+
+3) Logon Triggers
+
+------------------------------------------------------------------------
+
+Scenarios for Triggers:
+
+1) you have a table that changes frequently, now you want to know how many times and when the changes take place.
+In this case we create a History Table to record the old data & the new data changes in the data
+
+Emp_test
+Empid Ename
+(int)  (varchar(20))
+  1        Anita
+  2        Sumati
+
+
+Table:emp_History
+ChangedDateTime           Operation      OldValueEmpid       NewVlueEmpid   OldVAlueEname    newValueEmpname      UserName
+DateTime Datatype         (I/U/D)          int			int		varchar(20)    varchar(20)        dbo
+08-11-2023                   Insert         -                      1            -                 Anita            dbo
+08-11-2023                   Insert         -                      2           -                  Suma              dbo
+08-11-2023                   Update         2                      2           Suma                  Sumati       dbo
+08-11-2023                   Delete         2                      -           Sumati                  -           dbo
+---------------------------------------------------------------------------------------------------------------------------
+
+Syntax:
+create trigger trigname
+After/InsteadOf Insert/Update/Delete
+on tablename
+as
+begin
+//logic
+end;
+
+create trigger trigname
+after Insert on tablename
+as 
+begin
+//logic
+end 
+
+
+
+
+
+
+
+
+
+*****************************************************************
+Functions and Procedures 
+repeatative work
+task is performed and don't caluclations/output from it, it just makes a effect on the table/s in the database ---Procedure
+task is performed and calculations are done and the output of the calculcation is expected ----- function
+
+1) create function dbo.CalculateTotalAmt
+.........
+
+
+2) Execute the function: select dbo.CalculateTotalAmt(10248)
+-------------------------------------------------------------
+1) create procedure dbo.InsertStudentData
+.........
+
+
+2) Exec/Execute dbo.InsertStudentData(12,'ABC')
+
+Call them to get their functionality
+
+
